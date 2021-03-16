@@ -8,27 +8,26 @@ namespace QueueHelper
     {
         static void Main(string[] args)
         {
-            // string storageAccountConnectionString = "<<Enter your connectionstring>>";
+            string storageAccountConnectionString = "<<Enter your storage account connectionstring>>";
 
-            // string queueName = "<<Entry your queue name here>>"; 
+            string queueName = "<<Enter your queue name>>"; 
 
-            int messageCount = 100;
+            string messageCount = "<<Enter your message count>>";
 
-            // var storageAccount = CloudStorageAccount.Parse(storageAccountConnectionString);
+            var storageAccount = CloudStorageAccount.Parse(storageAccountConnectionString);
 
-            // var queueClient = storageAccount.CreateCloudQueueClient();
+            var queueClient = storageAccount.CreateCloudQueueClient();
 
-            // var queueReference = queueClient.GetQueueReference(queueName);
+            var queueReference = queueClient.GetQueueReference(queueName);
 
-            // queueReference.CreateIfNotExistsAsync();
+            queueReference.CreateIfNotExistsAsync();
 
-            for(int i=0; i < messageCount ;i++)
+            for(int i=0; i < Convert.ToInt16(messageCount); i++)
             {
-                // queueReference.AddMessageAsync(new CloudQueueMessage($"my test message {i}"));
-                System.Console.WriteLine("test");
+                queueReference.AddMessageAsync(new CloudQueueMessage($"my test message {i}"));
             }
 
-            System.Console.WriteLine("Message sent sucessfully");
+            System.Console.WriteLine($"{messageCount} message added to requested queue");
             
         }
     }
