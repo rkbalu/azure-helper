@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Queue;
 
@@ -8,13 +8,11 @@ namespace Simulate_queue
     {
         static void Main(string[] args)
         {
-            string storageAccountConnectionString = "Enter your connectionstring";
+            string storageAccountConnectionString = "<<Enter your connectionstring>>";
 
-            string queueName = "Entry your queue name here"; 
+            string queueName = "<<Entry your queue name here>>"; 
 
             int messageCount = 100;
-
-            System.Console.WriteLine("Enter your Queue name?");
 
             var storageAccount = CloudStorageAccount.Parse(storageAccountConnectionString);
 
